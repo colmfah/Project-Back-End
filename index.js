@@ -14,6 +14,7 @@ app.use(cors({credentials: true}))
 
 app.get('/events', require('./controllers/getEvents'))
 app.get('/events/:id', require('./controllers/getEventById'))
+app.get('/', require('./controllers/root'))
 
 app.post('/auth', require('./controllers/authorise'))
 app.post('/checkForTickets', require('./controllers/checkForTickets'))
