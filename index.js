@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
+require('dotenv').config()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const database = require('./database')
 const multer = require('multer')
 const upload = multer({ dest: 'photos/' })
-require('dotenv').config()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -27,7 +27,11 @@ app.post('/users', require('./controllers/postUsers'))
 
 
 
+// app.post('/route', upload.single('file'), require('./controllers/postEvent'))
 
-app.listen(4000, () => {
-  console.log('Ready on port 4000')
+
+
+
+app.listen(process.env.PORT, () => {
+  console.log(`Ready on port ${process.env.PORT}`)
 })

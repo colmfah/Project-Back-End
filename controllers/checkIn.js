@@ -5,6 +5,7 @@ const moment = require('moment')
 
 module.exports = (req, res) => {
 
+
 	Event.find({_id: req.body.eventid})
 	.lean()
 	.then(eventdata => {
@@ -15,7 +16,7 @@ module.exports = (req, res) => {
 		} else if(!eventdata[0].ticketsSold.includes(req.body.qrcode)){
 			res.send('Fraudelent ticket. Do not allow entry')
 		} else if(eventdata[0].ticketsSold.includes(req.body.qrcode)){
-			res.send('Ticket Found. Customer has now been checked in')
+
 
 			let ticketsCheckedIn = eventdata[0].ticketsCheckedIn
 			ticketsCheckedIn.push(req.body.qrcode)
@@ -23,7 +24,9 @@ module.exports = (req, res) => {
 			Event.findByIdAndUpdate({_id:req.body.eventid}, {
 				ticketsCheckedIn: ticketsCheckedIn
 			})
-			.then()
+			.then(data => {
+				res.send('Ticket Found. Customer has now been checked in')
+			})
 			.catch(err => console.log(err))
 
 
