@@ -45,7 +45,12 @@ const Event = mongoose.model('event', {
 	ticketsCheckedIn: [
 		{type: Number
 		}
-	]
+	],
+	
+	imageURL: {
+		type: String,
+		required: [true, 'imageUrl is required']
+	}
 
 })
 
