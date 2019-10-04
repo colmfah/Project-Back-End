@@ -22,11 +22,11 @@ const Event = mongoose.model('event', {
 		required: [true, 'description is required']
 	},
 	startDetails: {
-		type: Object,
+		type: Date,
 		required: [true, 'start date and time are required']
 	},
 	endDetails: {
-		type: Object,
+		type: Date,
 		required: [true, 'end date and time are required']
 	},
 	organiser: {
@@ -46,7 +46,7 @@ const Event = mongoose.model('event', {
 		{type: Number
 		}
 	],
-	
+
 	imageURL: {
 		type: String,
 		required: [true, 'imageUrl is required']

@@ -14,6 +14,10 @@ const Ticket = mongoose.model('ticket', {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'user',
 		required: [true, 'purchaser id is required']
+	},
+	purchaseTime: {
+		type: Date,
+		default: Date.now
 	}
 
 })
