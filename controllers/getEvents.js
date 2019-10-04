@@ -15,8 +15,6 @@ module.exports = (req, res) => {
 	.lean()
 	.then(data => {
 
-		// data is filtered to only show events in the future and they are sorted by nearest event
-
 		res.send(data.filter(e => moment().isBefore(e.startDetails)).sort(	(a,b) => moment(a.startDetails) - moment(b.startDetails)	))
 	})
 	.catch(err => console.log(err))
