@@ -72,7 +72,7 @@ module.exports = (req, res) => {
 						<p>${data.location}</p>
 						<p>Starts at ${moment(data.startDetails).format('DD MMMM YYYY HH:mm')}</p>
 						<p>Ends at ${moment(data.endDetails).format('DD MMMM YYYY HH:mm')}</p>
-						<h1>Your QR code to enter the event is <a href="http://localhost:3000/qr/${e}">here</a></h1>
+						<h1>Your QR code to enter the event is <a href="https://eventzilla.herokuapp.com/qr/${e}">here</a></h1>
 						<p>Ticket ${i+1} of ${ticketNumbers.length} purchased. Each ticket will arrive in a seperate email.</p>`
 
 					}
