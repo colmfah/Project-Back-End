@@ -23,7 +23,7 @@ module.exports = (req, res) => {
 			Event.find({
 				organiser: user._id
 			})
-			.select('title location ticketNo startDetails endDetails ticketsSold')
+			.select('title location ticketNo startDetails endDetails ticketsSold imageURL')
 			.lean()
 			.then(usersEvents => {
 				usersEvents = usersEvents.map(	e => {
